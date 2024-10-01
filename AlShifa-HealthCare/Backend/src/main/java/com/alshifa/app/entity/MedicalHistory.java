@@ -13,14 +13,16 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name ="medicalrecord_info")
-public class MedicalRecord {
+@Table(name ="medical_history")
+public class MedicalHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
     private Long patientId;
     private String diagnosis;
+
+    @Column(name = "date_of_record", nullable = false)
     private LocalDateTime dateOfRecord;
     private String notes;
 }
