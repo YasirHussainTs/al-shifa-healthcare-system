@@ -18,7 +18,6 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
 
     @Column(nullable = false, unique = true)
@@ -44,5 +43,7 @@ public class User {
     private String gender;
     private String contactInfo;
     private String address;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MedicalHistory> medicalHistory;
 }

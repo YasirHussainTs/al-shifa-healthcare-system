@@ -18,8 +18,8 @@ import java.time.LocalDateTime;
 public class Schedule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
+
     private Long doctorId;
     private LocalDateTime availableFrom;
     private LocalDateTime availableTo;

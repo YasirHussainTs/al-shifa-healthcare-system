@@ -17,8 +17,8 @@ import java.time.LocalDateTime;
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
+
     private Long patientId;
     private Long doctorId;
     private LocalDateTime appointmentDate;

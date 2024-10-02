@@ -17,12 +17,20 @@ import java.time.LocalDateTime;
 public class MedicalHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
+
     private Long patientId;
     private String diagnosis;
 
     @Column(name = "date_of_record", nullable = false)
     private LocalDateTime dateOfRecord;
+
+    // Many medical histories can belong to one user
+    @ManyToOne
+    @JoinColumn(name = "user_id") // Foreign key column in medical_history table
+    private User user;
+
     private String notes;
+
+
 }

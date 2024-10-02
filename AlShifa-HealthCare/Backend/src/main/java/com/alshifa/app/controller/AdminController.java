@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin("*")
 @AllArgsConstructor
 @RestController
 @RequestMapping("/alshifa/adminpanel")
@@ -22,7 +21,7 @@ public class AdminController {
         return new ResponseEntity<>(savedAdmin, HttpStatus.CREATED);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<AdminDto> getAdminById(@PathVariable("id") Long adminId){
         AdminDto savedAdmin = adminService.getAdminById(adminId);
         return new ResponseEntity<>(savedAdmin, HttpStatus.OK);

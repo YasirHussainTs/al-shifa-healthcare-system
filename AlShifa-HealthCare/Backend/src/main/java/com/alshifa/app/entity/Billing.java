@@ -15,8 +15,8 @@ import lombok.Setter;
 public class Billing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
+
     private Long patientId;
     private Long treatmentId;
     private Double amount;
