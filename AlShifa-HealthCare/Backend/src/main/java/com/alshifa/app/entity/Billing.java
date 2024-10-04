@@ -19,6 +19,5 @@ public class Billing {
 
     private Long patientId;
     private Long treatmentId;
-    private Double amount;
     private String status;
 }

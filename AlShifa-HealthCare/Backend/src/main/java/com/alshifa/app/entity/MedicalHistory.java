@@ -21,13 +21,11 @@ public class MedicalHistory {
 
     private Long patientId;
     private String diagnosis;
-
-    @Column(name = "date_of_record", nullable = false)
     private LocalDateTime dateOfRecord;
 
     // Many medical histories can belong to one user
     @ManyToOne
-    @JoinColumn(name = "user_id") // Foreign key column in medical_history table
+    @JoinColumn(name = "user_id", nullable = false) // Foreign key column in medical_history table
     private User user;
 
     private String notes;
