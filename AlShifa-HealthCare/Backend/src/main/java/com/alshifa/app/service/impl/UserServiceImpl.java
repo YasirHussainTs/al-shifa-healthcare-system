@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -28,21 +29,39 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto getUserById(Long userId) {
-        return null;
+        User user = userRepository.findById(userId).
+                orElseThrow(() -> new RuntimeException("User not found!"));
+        return userMapper.map(user, UserDto.class);
     }
 
     @Override
     public List<UserDto> getAllUsers() {
-        return List.of();
+        List<User> users = userRepository.findAll();
+        return users.stream().map((user) -> userMapper.map(user, UserDto.class))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public UserDto updateUser(UserDto user, Long userId) {
-        return null;
+    public UserDto updateUser(UserDto userDto, Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("Could not find user"));
+        user.setFirstName(userDto.getFirstName());
+        user.setSecondName(userDto.getSecondName());
+        user.setEmail(userDto.getEmail());
+        user.setAge(userDto.getAge());
+        user.setGender(userDto.getGender());
+        user.setContactInfo(userDto.getContactInfo());
+        user.setAddress(userDto.getAddress());
+
+        User updatedUser = userRepository.save(user);
+
+        return userMapper.map(updatedUser, UserDto.class);
     }
 
     @Override
-    public void deleteUser(Long userId) {
-
+    public void deleteUserById(Long userId) {
+        User user = userRepository.findById(userId).
+                orElseThrow(() -> new RuntimeException("Could not find user"));
+        userRepository.deleteById(userId);
     }
 }

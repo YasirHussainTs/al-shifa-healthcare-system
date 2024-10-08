@@ -9,9 +9,9 @@ public interface DoctorService {
 
     DoctorDto getDoctorById(Long doctorId);
 
-    List<DoctorDto> getAllDoctor();
+    List<DoctorDto> getAllDoctors();
 
     DoctorDto updateDoctor(DoctorDto doctorDto,Long doctorId);
 
-    void deleteDoctor(Long doctorId);
+    void deleteDoctorById(Long doctorId);
 }
