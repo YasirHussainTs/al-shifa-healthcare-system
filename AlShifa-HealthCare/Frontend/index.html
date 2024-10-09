@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AlShifaApp">
+<head>
+    <meta charset="UTF-8">
+    <title>AlShifa Healthcare</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/userController.js"></script>
+    <script src="app/services/userService.js"></script>
+</head>
+<body ng-controller="UserController as userCtrl">
+
+<h1>User List</h1>
+<div>
+    <ul>
+        <li ng-repeat="user in userCtrl.users">
+            {{ user.name }} - {{ user.email }}
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
