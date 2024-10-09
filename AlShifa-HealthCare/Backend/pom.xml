@@ -12,7 +12,7 @@
     <artifactId>alshifa-healthcare-app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>alshifa-app</name>
-    <description>Spring Boot Project for AlShifa App</description>
+    <description>Spring Boot Project for AlShifa HealthCareApp</description>
     <properties>
         <java.version>23</java.version>
     </properties>
