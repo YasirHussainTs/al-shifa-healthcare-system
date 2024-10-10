@@ -1,7 +1,6 @@
 package com.alshifa.app.controller;
 
 import com.alshifa.app.dto.DoctorDto;
-import com.alshifa.app.dto.UserDto;
 import com.alshifa.app.service.DoctorService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

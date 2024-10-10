@@ -17,3 +17,4 @@ public class AlShifaApplication {
         SpringApplication.run(AlShifaApplication.class, args);
     }
 }
+
