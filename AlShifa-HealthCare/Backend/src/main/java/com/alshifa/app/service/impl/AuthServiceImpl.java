@@ -4,6 +4,7 @@ import com.alshifa.app.dto.LoginDto;
 import com.alshifa.app.dto.RegisterDto;
 import com.alshifa.app.entity.Role;
 import com.alshifa.app.entity.User;
+import com.alshifa.app.exception.AlshifaAPIException;
 import com.alshifa.app.repository.RoleRepository;
 import com.alshifa.app.repository.UserRepository;
 import com.alshifa.app.security.JwtTokenProvider;
@@ -32,7 +33,12 @@ public class AuthServiceImpl {
 
         // Check username is already exists in DB
         if(userRepository.existsByUsername(registerDto.getUsername())) {
-            throw new Exception(HttpStatus.BAD_REQUEST, "Username already exists");
+            throw new AlshifaAPIException(HttpStatus.BAD_REQUEST, "Username already exists");
+        }
+
+        // Check email is already exists in DB
+        if(userRepository.existsByEmail(registerDto.getEmail())) {
+            throw new AlshifaAPIException(HttpStatus.BAD_REQUEST, "Email already exists");
         }
 
         User user = new User();
